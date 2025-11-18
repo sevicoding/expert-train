@@ -1,0 +1,381 @@
+/* ===============================
+   BASE
+=============================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  color: #070707;
+}
+
+/* ===============================
+   SIDEBAR WITH SLIDE-IN ANIMATION
+=============================== */
+.left-column {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  background: #ffffff;
+  border-right: 2px solid #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  transform: translateX(-260px);
+  opacity: 0;
+  animation: sidebarEnter 1s forwards ease-out;
+}
+
+@keyframes sidebarEnter {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.left-column header {
+  padding: 20px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.left-column header h1 {
+  font-size: 1.4em;
+  margin: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+.left-column header h1 a {
+  color: black;            /* match h1 text */
+  text-decoration: inherit; /* keep the underline from h1 */
+}
+
+.left-column header h1 a:visited,
+.left-column header h1 a:hover,
+.left-column header h1 a:active {
+  color: black;           
+}
+
+.left-column header h2 {
+  color: black;
+  font-size: 0.8em;
+  margin: 5px 0 0;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.left-column header h2 a {
+  color: black;           /* link color */
+  text-decoration: none;  /* remove underline */
+}
+
+.left-column header h2 a:visited,
+.left-column header h2 a:hover,
+.left-column header h2 a:active {
+  color: black;
+  text-decoration: none;
+}
+
+/* ===============================
+   NAVIGATION BUTTONS
+=============================== */
+.left-column nav {
+  padding: 0;
+}
+
+.left-column nav a {
+  display: block;
+  position: relative;
+  right: 20%;
+  padding: 15px 20%;
+  margin: 0 0 2px 5px;
+  background-color: #ffffff;
+  color: #070707;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: right;
+  border-radius: 8px;
+  border: 2px solid #000;
+  transition: right 0.2s ease;
+}
+
+.left-column nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.indexnav::after { background: #000; }
+.aboutnav::after { background: rgb(0,0,255); }
+.eslnav::after { background: #30a8dc; }
+.languagesnav::after { background: #f4a75a; }
+.codingnav::after { background: rgb(45,173,35); }
+.tradingnav::after { background: rgb(206,35,35); }
+.projectsnav::after { background: #ffff00; }
+.contactnav::after { background: rgb(133,91,39); }
+
+.left-column nav a:hover {
+  filter: brightness(0.95);
+  right: 5%;
+}
+
+/* ===============================
+   MAIN CONTENT WRAPPER
+=============================== */
+.main {
+  margin-left: 240px;
+  padding: 40px;
+  width: calc(100% - 240px);
+}
+
+.titlebanner,
+.container,
+section {
+  max-width: 80%;
+  margin: 0 0 40px 0;
+}
+
+/* Title banners */
+.titlebanner {
+  font-size: 1.5em;
+  padding: 5px 20px;
+  color: black;
+  border-radius: 15px;
+  text-align: left;
+  opacity: 0;
+  transform: translateX(100px);
+  animation: contentEnter 1s forwards ease-out;
+}
+
+/* Unique banner backgrounds */
+#indexbanner { background-color: #000; color: #fff; }
+#aboutbanner { background-color: rgb(0,0,255); color: white; }
+#eslbanner { background-color: #30a8dc; color: white; }
+#languagesbanner { background-color: #f4a75a; color: black; }
+#codingbanner { background-color: rgb(45,173,35); color: white; }
+#tradingbanner { background-color: rgb(206,35,35); color: white; }
+#projectbanner { background-color: #ffff00; color: black; }
+#contactbanner { background-color: rgb(133,91,39); color: white; }
+
+/* ===============================
+   HOME INTRO LINES ANIMATION
+=============================== */
+#intro {
+  color: rgb(0,0,0);
+  font-size: 1.5em;
+  font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+}
+
+#intro p {
+  margin: 0;            /* removes default spacing */
+  line-height: 1.5em;   /* adjust spacing between lines */
+}
+
+#introline1 { 
+  animation: lineEnter 2s forwards ease-out; 
+  animation-delay: 0s; 
+  transform: translateX(-100px); 
+  opacity: 0; }
+
+#introline2 { 
+  padding-left: 20%;
+  animation: lineEnter 2s forwards ease-out; 
+  animation-delay: 1s; 
+  transform: translateX(-100px); 
+  opacity: 0; }
+
+#introline3 { 
+  padding-left: 30%;
+  animation: lineEnter 2s forwards ease-out; 
+  animation-delay: 2s; 
+  transform: translateX(-100px); 
+  opacity: 0; }
+
+#introline4 { 
+  padding-left:40%;
+  animation: lineEnter 2s forwards ease-out; 
+  animation-delay: 3s; 
+  transform: translateX(-100px); 
+  opacity: 0; }
+
+#introline5 { 
+  padding-top: 30px; 
+  animation: lineEnter .7s forwards ease-out; 
+  animation-delay: 5s; 
+  transform: translateY(-10px); 
+  opacity: 0; 
+ } 
+
+@keyframes lineEnter {
+  to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+/* Text highlight */
+.highlight { background: #ff9900; color: #000000; padding: 2px 4px; border-radius: 4px; }
+.keyword {background-color: black; color: #ffffff; padding: 2px 4px; border-radius: 4px; }
+
+/* ===============================
+   FOOTER
+=============================== */
+footer {
+  background-color: #ffffff;
+  padding: 20px;
+  color: rgb(0, 0, 0);
+  margin-bottom: -3%;
+}
+
+/* ===============================
+   FIXED PAGE (HOME / NO SCROLL)
+=============================== */
+.fixedpage {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.fixedpage .main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.fixedpage footer {
+  margin-top: auto; /* push footer to bottom */
+}
+
+/* ===============================
+   SCROLL PAGE (ALL OTHER PAGES)
+=============================== */
+.scrollpage {
+  overflow-y: auto;
+}
+
+.scrollpage .main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.scrollpage footer {
+  margin-top: auto;
+  width: 100vw;
+}
+
+/* ===============================
+   CONTENT APPEAR ANIMATION
+=============================== */
+@keyframes contentEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   ABOUT ME SECTION
+=============================== */
+
+/* Container for all About Me rows */
+.aboutmeexp-row {
+  display: flex;                /* flex row layout */
+  align-items: flex-start;      /* top-align images and text */
+  gap: 20px;                    /* space between image and text */
+  margin-bottom: 40px;
+}
+
+/* Image container */
+.aboutmeimg {
+  flex-shrink: 0;               /* prevent shrinking */
+  display: flex;
+  justify-content: center;      /* center image vertically */
+  align-items: flex-start;
+}
+
+/* Images in About Me rows */
+.aboutmeimg img {
+  width: 500px;                 
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Text containers take remaining space */
+#aboutmeteachingexp,
+#aboutmestrengths {
+  flex: 1;                      /* fill remaining space */
+  font-size: 1.2em;
+  line-height: 1.5em;
+  color: #070707;
+}
+
+/* Strengths list styling */
+#aboutmestrengths ul {
+  padding-left: 20px;           /* proper bullet spacing */
+  margin: 10px 0 0 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .aboutmeexp-row {
+    flex-direction: column;     /* stack image above text */
+    gap: 15px;
+  }
+
+  .aboutmeimg img {
+    width: 100%;                /* scale to container width */
+    max-width: 5000px;           /* don't get too big */
+    margin: 0 auto;             /* center image */
+  }
+
+  #aboutmeteachingexp,
+  #aboutmestrengths {
+    text-align: center;
+  }
+}
+
+/* Introduction section */
+#aboutmeopen {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  margin-bottom: 40px;
+}
+
+/* Title banners */
+.titlebanner h2 {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+/* Hobbies & Interests */
+#hobbies ul {
+  padding-left: 20px;
+  line-height: 1.5em;
+}
+
+/* Closing section */
+#closing {
+  margin-top: 40px;
+}
